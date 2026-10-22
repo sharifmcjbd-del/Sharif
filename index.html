@@ -98,6 +98,51 @@ h3{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;
 .refs .t{color:var(--ink);font-size:15px;display:block;margin-bottom:2px}
 footer{color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);padding-top:16px}
 
+/* Identity row: photo + theme switch */
+.idrow{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:18px}
+.avatar{width:96px;height:96px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font:600 34px var(--f-display);letter-spacing:.02em;overflow:hidden;flex:none;border:1px solid var(--line)}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.theme{font:500 12px var(--f-body);color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:5px 11px;cursor:pointer}
+.theme:hover{color:var(--ink);border-color:var(--muted)}
+
+/* Career timeline */
+.tl{padding:18px 0 8px}
+.tl-track{position:relative;height:34px;border-bottom:1px solid var(--line)}
+.seg{position:absolute;top:6px;height:22px;border:0;border-radius:4px;background:var(--accent);opacity:.55;cursor:pointer;padding:0;transition:opacity .15s}
+.seg.study{background:var(--surface);border:1.5px dashed var(--accent);opacity:.9}
+.seg:hover,.seg:focus-visible,.seg.on{opacity:1}
+.tl-axis{position:relative;height:20px;font:11.5px var(--f-mono);color:var(--muted)}
+.tl-axis span{position:absolute;top:4px;transform:translateX(-50%)}
+.tl-detail{min-height:44px;font-size:14px;padding-top:6px}
+.tl-detail .s{display:block}
+.rows li.flash{background:var(--accent-soft);transition:background .3s}
+
+/* Publications by year chart */
+.yc{padding:16px 0 4px}
+.yc-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:13px;color:var(--muted);margin-bottom:8px}
+.yc-bars{display:flex;align-items:flex-end;gap:4px;height:110px;border-bottom:1px solid var(--line)}
+.bar{flex:1 1 0;min-width:0;height:100%;display:flex;align-items:flex-end;background:none;border:0;padding:0;cursor:pointer;position:relative}
+.bar[disabled]{cursor:default}
+.bar i{display:block;width:100%;background:var(--accent);border-radius:4px 4px 0 0;opacity:.75;transition:opacity .15s,height .25s}
+.bar:hover i,.bar:focus-visible i{opacity:1}
+.yc.sel .bar i{opacity:.25}
+.yc.sel .bar.on i{opacity:1}
+.bar .tip{position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);font:500 11.5px var(--f-mono);padding:2px 6px;border-radius:3px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .12s}
+.bar:hover .tip,.bar:focus-visible .tip{opacity:1}
+.yc-years{display:flex;gap:4px;font:11px var(--f-mono);color:var(--muted);padding-top:4px}
+.yc-years span{flex:1 1 0;min-width:0;text-align:center}
+.yc-years span.odd{visibility:hidden}
+@media (min-width:600px){.yc-years span.odd{visibility:visible}}
+.yr-clear{font:500 12px var(--f-body);color:var(--accent);background:var(--accent-soft);border:0;border-radius:999px;padding:3px 10px;cursor:pointer}
+
+/* Cite button */
+.cite-row{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center;margin-top:2px}
+.citebtn{font:500 11px var(--f-mono);letter-spacing:.04em;text-transform:uppercase;color:var(--muted);background:none;border:1px solid var(--line);border-radius:3px;padding:1px 6px;cursor:pointer}
+.citebtn:hover{color:var(--accent);border-color:var(--accent)}
+
+/* Back to top */
+.totop{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:6;font:500 13px var(--f-body);background:var(--ink);color:var(--bg);border:0;border-radius:999px;padding:9px 14px;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.15)}
+
 @media (max-width:860px){
   .wrap{grid-template-columns:minmax(0,1fr);gap:32px;padding-block:28px 64px}
   aside{position:static;gap:20px}
@@ -120,6 +165,10 @@ footer{color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);padd
 <div class="wrap">
   <aside>
     <div>
+      <div class="idrow">
+        <div class="avatar" id="avatar" role="img" aria-label="Md. Shariful Islam">SI</div>
+        <button class="theme" id="theme" type="button" aria-label="Switch colour theme">Dark</button>
+      </div>
       <h1 class="name">Md. Shariful Islam</h1>
       <p class="role">Associate Professor (On study leave)<br>Mass Communication and Journalism Discipline<br>Khulna University, Bangladesh</p>
     </div>
@@ -146,6 +195,11 @@ footer{color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);padd
 
     <section id="experience">
       <div class="sh"><h2>Work Experience</h2><span class="count" id="c-experience"></span></div>
+      <div class="tl" aria-label="Career timeline">
+        <div class="tl-track" id="tl-track"></div>
+        <div class="tl-axis" id="tl-axis"></div>
+        <div class="tl-detail" id="tl-detail"></div>
+      </div>
       <ul class="rows" id="l-experience"></ul>
     </section>
 
@@ -159,6 +213,11 @@ footer{color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);padd
       <div class="controls">
         <div class="chips" id="pub-chips" role="group" aria-label="Filter publications"></div>
         <input class="search" id="pub-q" type="search" placeholder="Search title, co-author, journal…" aria-label="Search publications">
+      </div>
+      <div class="yc" id="yc">
+        <div class="yc-head"><span id="yc-label">Publications per year. Tap a bar to filter.</span><button class="yr-clear" id="yr-clear" type="button" hidden>Clear year</button></div>
+        <div class="yc-bars" id="yc-bars"></div>
+        <div class="yc-years" id="yc-years"></div>
       </div>
       <ul class="rows" id="l-pubs"></ul>
       <p class="empty" id="pub-empty" hidden>No publications match. Clear the search or choose another type.</p>
@@ -471,14 +530,44 @@ const pubState={v:"all"};
 const pubCounts={all:pubs.length}; pubs.forEach(p=>pubCounts[p.k]=(pubCounts[p.k]||0)+1);
 pubs.forEach(p=>{const d=document.createElement("div");d.innerHTML=p.h;p.text=(d.textContent+" "+(p.d||"")+" "+p.y).toLowerCase()});
 const kindLabel={article:"",conf:"",book:"",press:""};
+let pubYear=null;
+const years=pubs.map(p=>p.y), yMin=Math.min(...years), yMax=Math.max(...years);
+function drawChart(base){
+  const counts={}; base.forEach(p=>counts[p.y]=(counts[p.y]||0)+1);
+  const max=Math.max(1,...Object.values(counts));
+  let bars="",labels="";
+  for(let y=yMin;y<=yMax;y++){
+    const n=counts[y]||0;
+    bars+=`<button type="button" class="bar${y===pubYear?" on":""}" data-y="${y}" ${n?"":"disabled"} aria-label="${y}: ${n} publication${n===1?"":"s"}" aria-pressed="${y===pubYear}"><i style="height:${n?Math.max(4,n/max*100):0}%"></i><span class="tip">${y} · ${n}</span></button>`;
+    labels+=`<span class="${(y-yMin)%2?"odd":""}">${String(y).slice(2)==="00"?y:"’"+String(y).slice(2)}</span>`;
+  }
+  $("yc-bars").innerHTML=bars; $("yc-years").innerHTML=labels;
+  $("yc").classList.toggle("sel",pubYear!==null);
+  $("yr-clear").hidden=pubYear===null;
+  $("yc-label").textContent=pubYear===null?"Publications per year. Tap a bar to filter.":`Showing ${pubYear} only.`;
+}
+$("yc-bars").addEventListener("click",e=>{const b=e.target.closest(".bar"); if(!b||b.disabled) return; const y=+b.dataset.y; pubYear=pubYear===y?null:y; drawPubs();});
+$("yr-clear").addEventListener("click",()=>{pubYear=null;drawPubs();});
 function drawPubs(){
   const q=$("pub-q").value.trim().toLowerCase();
-  const list=pubs.filter(p=>(pubState.v==="all"||p.k===pubState.v)&&(!q||p.text.includes(q)));
+  const base=pubs.filter(p=>(pubState.v==="all"||p.k===pubState.v)&&(!q||p.text.includes(q)));
+  if(pubYear!==null&&!base.some(p=>p.y===pubYear)) pubYear=null;
+  const list=base.filter(p=>pubYear===null||p.y===pubYear);
+  drawChart(base);
   $("pub-empty").hidden=list.length>0;
   renderList("l-pubs",list.map(p=>row(p.y,
-    `<div class="cite${p.bn?" bn":""}">${p.tag?`<span class="tag">${p.tag}</span>`:""}${p.h}</div>${doi(p.d)}${p.u?`<div class="doi"><a href="${p.u}" target="_blank" rel="noopener">Read online</a></div>`:""}`)),
-    (pubState.v==="all"&&!q)?10:0);
+    `<div class="cite${p.bn?" bn":""}">${p.tag?`<span class="tag">${p.tag}</span>`:""}${p.h}</div><div class="cite-row">${doi(p.d)}${p.u?`<div class="doi"><a href="${p.u}" target="_blank" rel="noopener">Read online</a></div>`:""}<button type="button" class="citebtn" data-i="${pubs.indexOf(p)}">Copy citation</button></div>`)),
+    (pubState.v==="all"&&!q&&pubYear===null)?10:0);
 }
+$("l-pubs").addEventListener("click",e=>{
+  const b=e.target.closest(".citebtn"); if(!b) return;
+  const p=pubs[b.dataset.i], d=document.createElement("div"); d.innerHTML=p.h;
+  const txt=d.textContent.replace(/\s+/g," ").trim()+(p.d?` https://doi.org/${p.d}`:"");
+  const cite=b.closest("li").querySelector(".cite");
+  const ok=()=>{b.textContent="Copied";setTimeout(()=>b.textContent="Copy citation",1400)};
+  const fb=()=>{const r=document.createRange();r.selectNodeContents(cite);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="Selected";setTimeout(()=>b.textContent="Copy citation",1400)};
+  try{navigator.clipboard.writeText(txt).then(ok,fb)}catch(err){fb()}
+});
 chips("pub-chips",pubTypes,pubCounts,pubState,drawPubs);
 $("pub-q").addEventListener("input",drawPubs);
 setCount("c-pubs",pubs.length,"items");
@@ -514,7 +603,7 @@ const figs=[
 ];
 $("figs").innerHTML=figs.map(([n,l,s,f],i)=>`<button type="button" class="fig" data-i="${i}"><b>${n}</b><span>${esc(l)}</span></button>`).join("");
 $("figs").onclick=e=>{const b=e.target.closest(".fig"); if(!b) return; const [, ,s,f]=figs[b.dataset.i];
-  if(f){const box=s==="publications"?"pub-chips":"train-chips"; $(box).querySelector(`[data-k="${f}"]`).click(); if(s==="publications") $("pub-q").value="", drawPubs();}
+  if(f){pubYear=null; const box=s==="publications"?"pub-chips":"train-chips"; $(box).querySelector(`[data-k="${f}"]`).click(); if(s==="publications") $("pub-q").value="", drawPubs();}
   $(s).scrollIntoView();};
 
 /* ---------- nav + scroll-spy ---------- */
@@ -531,6 +620,42 @@ function spy(){
 let tick=false; window.addEventListener("scroll",()=>{if(!tick){tick=true;requestAnimationFrame(()=>{spy();tick=false})}},{passive:true});
 spy();
 if(location.hash&&$(location.hash.slice(1))) $(location.hash.slice(1)).scrollIntoView();
+
+/* ---------- career timeline ---------- */
+const T0=2014, T1=2027, pos=v=>(v-T0)/(T1-T0)*100;
+const career=[
+ {a:2014.5,b:2016,t:"Reporter, Crime Beat",o:"The Daily Samakal, Dhaka",d:"July 2014 – December 2015",row:2},
+ {a:2016.67,b:2018.67,t:"Lecturer",o:"Daffodil International University, Dhaka",d:"September 2016 – September 2018",row:1},
+ {a:2018.67,b:2026,t:"Faculty Member",o:"Mass Communication and Journalism Discipline, Khulna University",d:"September 2018 – December 2025",row:0},
+ {a:2026,b:2027,t:"Master of Communication (student)",o:"RMIT University, Melbourne",d:"2026 – present",study:1,sec:"education"}
+];
+$("tl-track").innerHTML=career.map((c,i)=>`<button type="button" class="seg${c.study?" study":""}" data-i="${i}" style="left:calc(${pos(c.a)}% + 1px);width:calc(${pos(c.b)-pos(c.a)}% - 2px)" aria-label="${esc(c.t)}, ${esc(c.o)}, ${esc(c.d)}"></button>`).join("");
+let ax=""; for(let y=T0;y<=T1;y+=2) ax+=`<span style="left:${pos(y)}%">${y}</span>`; $("tl-axis").innerHTML=ax;
+const segs=[...document.querySelectorAll(".seg")];
+function showCareer(i){
+  const c=career[i]; segs.forEach((s,j)=>s.classList.toggle("on",j===i));
+  $("tl-detail").innerHTML=`<span class="t">${esc(c.t)}</span><span class="s">${esc(c.o)} · ${esc(c.d)}</span>`;
+}
+$("tl-track").addEventListener("mouseover",e=>{const s=e.target.closest(".seg"); if(s) showCareer(+s.dataset.i)});
+$("tl-track").addEventListener("focusin",e=>{const s=e.target.closest(".seg"); if(s) showCareer(+s.dataset.i)});
+$("tl-track").addEventListener("click",e=>{const s=e.target.closest(".seg"); if(!s) return; const c=career[+s.dataset.i];
+  const li=c.sec==="education"?$("l-education").children[0]:$("l-experience").children[c.row];
+  if(li){li.scrollIntoView({block:"center"}); li.classList.add("flash"); setTimeout(()=>li.classList.remove("flash"),1200);}});
+showCareer(2);
+
+/* ---------- theme switch ---------- */
+const root=document.documentElement, mq=window.matchMedia("(prefers-color-scheme: dark)");
+const curTheme=()=>root.dataset.theme||(mq.matches?"dark":"light");
+const paintThemeBtn=()=>{$("theme").textContent=curTheme()==="dark"?"Light":"Dark"};
+try{const saved=localStorage.getItem("cv-theme"); if(saved) root.dataset.theme=saved;}catch(e){}
+paintThemeBtn(); mq.addEventListener?.("change",paintThemeBtn);
+$("theme").addEventListener("click",()=>{const next=curTheme()==="dark"?"light":"dark"; root.dataset.theme=next; paintThemeBtn();
+  try{localStorage.setItem("cv-theme",next)}catch(e){}});
+
+/* ---------- back to top ---------- */
+const toTop=document.createElement("button"); toTop.type="button"; toTop.className="totop"; toTop.textContent="↑ Top"; toTop.hidden=true;
+toTop.addEventListener("click",()=>window.scrollTo({top:0})); document.body.appendChild(toTop);
+window.addEventListener("scroll",()=>{toTop.hidden=window.scrollY<700},{passive:true});
 
 /* ---------- copy ---------- */
 document.querySelectorAll(".copy").forEach(b=>b.addEventListener("click",()=>{

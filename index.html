@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Md. Shariful Islam — journalism and communication academic. Publications, research, teaching and training.">
+<title>Md. Shariful Islam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Bengali:wght@400;600&display=swap">
+<style>
+/* Layout: sticky left column (identity, contact, section index) beside one reading column; stacks on phones with a sticky index bar. */
+:root{
+  --bg:#f6f7f6; --surface:#ffffff; --ink:#17201c; --muted:#5b6862; --line:#dde3df;
+  --accent:#1e5a47; --accent-soft:#e3ede8;
+  --f-display:"Spectral",Georgia,"Times New Roman",serif;
+  --f-body:"IBM Plex Sans","Noto Sans Bengali",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --f-bn:"Noto Sans Bengali","IBM Plex Sans",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1412; --surface:#151c19; --ink:#e5ebe8; --muted:#97a59f; --line:#26302c;
+  --accent:#86c6ad; --accent-soft:#1b2a24; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1412; --surface:#151c19; --ink:#e5ebe8; --muted:#97a59f; --line:#26302c;
+  --accent:#86c6ad; --accent-soft:#1b2a24; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+.bn{font-family:var(--f-bn)}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+
+.wrap{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:270px minmax(0,1fr);gap:56px;padding-block:48px 80px}
+
+/* Sidebar */
+aside{position:sticky;top:calc(env(safe-area-inset-top,0px) + 40px);align-self:start;display:flex;flex-direction:column;gap:28px}
+.name{font-family:var(--f-display);font-weight:600;font-size:34px;line-height:1.1;margin:0;text-wrap:balance;letter-spacing:-.01em}
+.role{margin:10px 0 0;color:var(--muted);font-size:14px;line-height:1.5}
+.contact{display:flex;flex-direction:column;gap:8px;font-size:13.5px}
+.contact .row{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0}
+.contact .val{overflow-wrap:anywhere;min-width:0}
+.copy{font:500 11px var(--f-mono);letter-spacing:.04em;text-transform:uppercase;color:var(--muted);background:none;border:1px solid var(--line);border-radius:3px;padding:2px 6px;cursor:pointer;flex:none}
+.copy:hover{color:var(--accent);border-color:var(--accent)}
+nav ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;border-left:1px solid var(--line)}
+nav a{display:block;padding:4px 0 4px 14px;margin-left:-1px;border-left:2px solid transparent;color:var(--muted);text-decoration:none;font-size:13.5px}
+nav a:hover{color:var(--ink)}
+nav a.on{color:var(--ink);border-left-color:var(--accent);font-weight:500}
+
+/* Main */
+main{min-width:0;display:flex;flex-direction:column;gap:64px}
+.intro{display:flex;flex-direction:column;gap:22px;padding-bottom:8px}
+.intro p{margin:0;max-width:62ch;font-size:16.5px;color:var(--ink)}
+.figs{display:flex;flex-wrap:wrap;gap:10px 28px}
+.fig{background:none;border:0;padding:0;text-align:left;cursor:pointer;color:var(--ink);font:inherit}
+.fig b{display:block;font-family:var(--f-display);font-size:30px;font-weight:600;line-height:1;font-variant-numeric:tabular-nums}
+.fig span{font-size:12.5px;color:var(--muted)}
+.fig:hover span{color:var(--accent)}
+
+section{scroll-margin-top:calc(env(safe-area-inset-top,0px) + 24px)}
+.sh{display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-bottom:1px solid var(--ink);padding-bottom:8px;margin-bottom:6px}
+h2{font-family:var(--f-display);font-weight:600;font-size:24px;margin:0;line-height:1.2}
+.count{font:12px var(--f-mono);color:var(--muted);letter-spacing:.03em}
+h3{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:28px 0 4px}
+
+.rows{list-style:none;margin:0;padding:0}
+.rows li{display:grid;grid-template-columns:118px minmax(0,1fr);gap:16px;padding:13px 0;border-bottom:1px solid var(--line)}
+.rows li:last-child{border-bottom:0}
+.when{font:13px/1.6 var(--f-mono);color:var(--muted);font-variant-numeric:tabular-nums;padding-top:1px}
+.what{min-width:0}
+.t{font-weight:600}
+.s{color:var(--muted);font-size:14px}
+.cite b{font-weight:600}
+.cite i{font-style:italic}
+.doi{font:12.5px var(--f-mono);overflow-wrap:anywhere}
+.tag{display:inline-block;font:500 10.5px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);border-radius:3px;padding:1px 6px;margin-right:6px;vertical-align:1px}
+
+/* Controls */
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:14px 0 6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:500 13px var(--f-body);background:var(--surface);color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:5px 12px;cursor:pointer}
+.chip:hover{color:var(--ink);border-color:var(--muted)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip .n{font-family:var(--f-mono);font-size:11.5px;opacity:.7;margin-left:4px}
+.search{flex:1 1 200px;min-width:0;font:14px var(--f-body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:7px 11px}
+.search::placeholder{color:var(--muted)}
+.empty{color:var(--muted);padding:18px 0;font-size:14px}
+.more{margin-top:10px;font:500 13px var(--f-body);color:var(--accent);background:none;border:0;padding:4px 0;cursor:pointer}
+.more:hover{text-decoration:underline}
+.note{font-size:14px;color:var(--muted);margin:14px 0 0}
+
+.refs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;padding-top:14px}
+.refs p{margin:0;font-size:14px;color:var(--muted)}
+.refs .t{color:var(--ink);font-size:15px;display:block;margin-bottom:2px}
+footer{color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);padding-top:16px}
+
+@media (max-width:860px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:32px;padding-block:28px 64px}
+  aside{position:static;gap:20px}
+  .name{font-size:30px}
+  nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);margin:0 calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:8px max(16px,env(safe-area-inset-left,0px));border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+  nav::-webkit-scrollbar{display:none}
+  nav ol{flex-direction:row;border-left:0;gap:4px;width:max-content}
+  nav a{border-left:0;padding:4px 10px;border-radius:999px;white-space:nowrap}
+  nav a.on{background:var(--accent-soft);color:var(--accent)}
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+  main{gap:52px}
+}
+@media (max-width:520px){
+  .rows li{grid-template-columns:minmax(0,1fr);gap:2px}
+}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <aside>
+    <div>
+      <h1 class="name">Md. Shariful Islam</h1>
+      <p class="role">Associate Professor (On study leave)<br>Mass Communication and Journalism Discipline<br>Khulna University, Bangladesh</p>
+    </div>
+    <div class="contact">
+      <div class="row"><span class="val mono" id="em1">sharif@mcj.ku.ac.bd</span><button class="copy" data-copy="em1" type="button">Copy</button></div>
+      <div class="row"><span class="val mono" id="em2">sharif.mcj.bd@gmail.com</span><button class="copy" data-copy="em2" type="button">Copy</button></div>
+      <div class="row"><span class="val mono" id="ph1">+61 483 824 773</span><button class="copy" data-copy="ph1" type="button">Copy</button></div>
+      <div class="row"><span class="val mono" id="ph2">+880 1729 429182</span><button class="copy" data-copy="ph2" type="button">Copy</button></div>
+      <div class="row"><a class="val" href="https://ku.ac.bd/discipline/mcj/faculty/sharif.mcj.bd">Faculty profile, Khulna University</a></div>
+    </div>
+    <nav aria-label="Sections"><ol id="nav"></ol></nav>
+  </aside>
+
+  <main>
+    <div class="intro" id="top">
+      <p>Journalism and communication academic, formerly a crime-beat reporter, now completing a Master of Communication at RMIT University, Melbourne, as an Australia Awards scholar.</p>
+      <div class="figs" id="figs"></div>
+    </div>
+
+    <section id="education">
+      <div class="sh"><h2>Academic Qualifications</h2><span class="count" id="c-education"></span></div>
+      <ul class="rows" id="l-education"></ul>
+    </section>
+
+    <section id="experience">
+      <div class="sh"><h2>Work Experience</h2><span class="count" id="c-experience"></span></div>
+      <ul class="rows" id="l-experience"></ul>
+    </section>
+
+    <section id="projects">
+      <div class="sh"><h2>Research Projects</h2><span class="count" id="c-projects"></span></div>
+      <ul class="rows" id="l-projects"></ul>
+    </section>
+
+    <section id="publications">
+      <div class="sh"><h2>Publications</h2><span class="count" id="c-pubs"></span></div>
+      <div class="controls">
+        <div class="chips" id="pub-chips" role="group" aria-label="Filter publications"></div>
+        <input class="search" id="pub-q" type="search" placeholder="Search title, co-author, journal…" aria-label="Search publications">
+      </div>
+      <ul class="rows" id="l-pubs"></ul>
+      <p class="empty" id="pub-empty" hidden>No publications match. Clear the search or choose another type.</p>
+      <p class="note"><span class="tag">Peer reviewer</span><i>Media Watch</i> (ISSN: 0976-0911), SAGE Publications. Date of review: April 16, 2025.</p>
+    </section>
+
+    <section id="leadership">
+      <div class="sh"><h2>Organisational &amp; Leadership</h2><span class="count" id="c-leadership"></span></div>
+      <ul class="rows" id="l-leadership"></ul>
+    </section>
+
+    <section id="talks">
+      <div class="sh"><h2>Workshops &amp; Seminars</h2><span class="count" id="c-talks"></span></div>
+      <div class="controls"><div class="chips" id="talk-chips" role="group" aria-label="Filter by role"></div></div>
+      <ul class="rows" id="l-talks"></ul>
+    </section>
+
+    <section id="training">
+      <div class="sh"><h2>Training</h2><span class="count" id="c-training"></span></div>
+      <div class="controls"><div class="chips" id="train-chips" role="group" aria-label="Filter training"></div></div>
+      <ul class="rows" id="l-training"></ul>
+    </section>
+
+    <section id="honours">
+      <div class="sh"><h2>Honours &amp; Awards</h2><span class="count" id="c-honours"></span></div>
+      <ul class="rows" id="l-honours"></ul>
+    </section>
+
+    <section id="committees">
+      <div class="sh"><h2>Academic Committees</h2><span class="count" id="c-committees"></span></div>
+      <ul class="rows" id="l-committees"></ul>
+    </section>
+
+    <section id="memberships">
+      <div class="sh"><h2>Professional Membership</h2><span class="count" id="c-memberships"></span></div>
+      <ul class="rows" id="l-memberships"></ul>
+    </section>
+
+    <section id="extra">
+      <div class="sh"><h2>Extracurricular</h2><span class="count" id="c-extra"></span></div>
+      <ul class="rows" id="l-extra"></ul>
+    </section>
+
+    <section id="references">
+      <div class="sh"><h2>References</h2></div>
+      <div class="refs">
+        <p><span class="t">Md. Golam Rahman, PhD</span>Editor, <i>The Daily Ajker Patrika</i><br>Professor (Adjunct), Daffodil International University<br>Professor (Retd.), University of Dhaka</p>
+        <p><span class="t">Dr. Md Saiful Alam Chowdhury</span>Associate Professor<br>Dept. of Mass Communication and Journalism<br>University of Dhaka</p>
+      </div>
+      <p class="note">Contact details for referees available on request.</p>
+    </section>
+
+    <footer>Md. Shariful Islam · Curriculum vitae</footer>
+  </main>
+</div>
+
+<script>
+const KU="Khulna University", MCJKU="Mass Communication and Journalism Discipline, Khulna University", DIU="Daffodil International University", JMCDIU="Journalism and Mass Communication Department, Daffodil International University";
+const doi=d=>d?`<div class="doi"><a href="https://doi.org/${d}" target="_blank" rel="noopener">doi.org/${d}</a></div>`:"";
+const me="<b>Islam, M. S.</b>";
+
+const education=[
+ ["Current","Master of Communication","School of Media and Communication, Royal Melbourne Institute of Technology (RMIT) University, Melbourne, Australia","Grade: 3.80 out of 4.00 (First semester)"],
+ ["","Master of Social Science","Mass Communication and Journalism Department, University of Dhaka, Dhaka, Bangladesh","Grade: 3.78 out of 4.00"],
+ ["","Bachelor of Social Science","Mass Communication and Journalism Department, University of Dhaka, Dhaka, Bangladesh","Grade: 3.51 out of 4.00"],
+ ["","Higher Secondary School Certificate","Business Studies Group, Barisal Board","Grade: 5.00 out of 5.00"],
+ ["","Secondary School Certificate","Humanities Group, Barisal Board","Grade: 5.00 out of 5.00"]
+];
+const experience=[
+ ["2018 – 2025","Faculty Member",MCJKU+", Khulna, Bangladesh","September 04, 2018 – December 31, 2025"],
+ ["2016 – 2018","Lecturer",JMCDIU+", Dhaka, Bangladesh","September 01, 2016 – September 03, 2018"],
+ ["2014 – 2015","Reporter, Crime Beat","The Daily Samakal, Dhaka, Bangladesh","July 01, 2014 – December 31, 2015"]
+];
+const projects=[
+ ["2025","Co-Principal Investigator","<i>Exploring the Perceived Influence of Social Media Influencers on Generation Z in Determining Preferences</i>","Funded by Khulna University Research and Innovation Centre"],
+ ["2024","Co-Principal Investigator","<i>Factors Affecting F-Commerce Entrepreneurship of Rural Women in Bangladesh</i>","Funded by Planning Ministry, Bangladesh"],
+ ["2022","Principal Investigator","<i>News Sharing on Social Media: Trends and Ethical Practices of Mainstream Media in Bangladesh</i>","Funded by Khulna University Research and Innovation Centre"]
+];
+
+const pubs=[
+ // journal articles
+ {y:2026,k:"article",h:`Khan, M. A., Biswas, A., &amp; ${me} (2026). Environmental journalism under constraint: Literacy, normative pressures, and institutional gaps in Bangladesh. <i>Journalism Practice</i>.`,d:"10.1080/17512786.2026.2703611"},
+ {y:2026,k:"article",h:`Shaikh, L., ${me}, Rashid, M., &amp; Ritu, T. N. (2026). Adapting to a new environment: Mental health challenges among South Asian international students in Bangladesh. <i>Communication and Media in Asia Pacific</i>, <i>9</i>(2), 49–61.`,d:"10.14456/cmap.2026.5"},
+ {y:2026,k:"article",h:`Hasan, R., Kabir, M. R., &amp; ${me} (2026). Influencing factors of social media reels engagement of university students in Bangladesh. <i>Khulna University Studies</i>, <i>23</i>(1), 174–186.`,d:"10.53808/KUS.2026.23.01.1535-ss"},
+ {y:2025,k:"article",h:`Hasib, M., &amp; ${me} (2025). How university students in Bangladesh engage with ChatGPT: A qualitative study. <i>PLOS ONE</i>.`,d:"10.1371/journal.pone.0333089"},
+ {y:2025,k:"article",h:`Rahman, M., ${me}, Khatun, M., Hossain, S. M., &amp; Chanda, S. K. (2025). OTT services in Bangladesh: What drives university students to stream? <i>Media Watch</i>.`,d:"10.1177/09760911251378689"},
+ {y:2025,k:"article",h:`Chanda, S. K., Hossain, M., Mondal, A., Rahut, A., Hasan, M. M., &amp; ${me} (2025). Examining the prevalence of and factors associated with facility-based birth services in Bangladesh: A cross-sectional analysis using national data. <i>Discover Public Health</i>, 22(1), 672.`,d:"10.1186/s12982-025-01082-8"},
+ {y:2024,k:"article",h:`${me}, Hossain M.S., Hossen S. &amp; Bashar K. (2024). Do Local Newspapers Reflect the Locals? A Comparative Study on Local and National News Coverage in Khulna. <i>Khulna University Studies</i>.`,d:"10.53808/KUS.2024.21.01.961-ss"},
+ {y:2024,k:"article",h:`Maruf, N. A., &amp; ${me} (2024). Facebook as a platform for job preparation: Exploring university students' preferences and perceptions. <i>SUST Journal of Social Sciences</i>, 34(1), 53–67.`},
+ {y:2024,k:"article",bn:1,h:`<b>ইসলাম, মো. শ.</b>, হোসেন, মো. শা., ইসলাম, মা. ও দুলাল, তা. (২০২৪)। বানান ভুল বিষয়ক প্রতিবেদন: সংবাদমাধ্যমের আধেয় বিশ্লেষণ। <i>মাতৃভাষা পত্রিকা</i>। বর্ষ: ৮, সংখ্যা ১-২। পৃষ্ঠা: ৯৭-১১২। আন্তর্জাতিক মাতৃভাষা ইনস্টিটিউট: ঢাকা।`},
+ {y:2023,k:"article",h:`Siam, M. M. &amp; ${me} (2023). Facebook as a Platform for Local Government Election Campaign in Bangladesh: A Study on Narayanganj City Corporation Election 2022. <i>Khulna University Studies</i>.`,d:"10.53808/KUS.SI.2023.ICSSI60-ss"},
+ {y:2023,k:"article",h:`Das, B. &amp; ${me} (2023). Influencing Factors and News Coverage of Cyclone in the Leading Newspaper of Bangladesh: A Study on Cyclone Bulbul. <i>Journal of the Patuakhali Science and Technology University</i>.`},
+ {y:2023,k:"article",h:`Hasib, M &amp; ${me} (2023). The State of Investigative Journalism During Covid-19: A Study on Print Media of Bangladesh. <i>Khulna University Studies</i>.`,d:"10.53808/KUS.SI.2023.ICSSI52-ss"},
+ {y:2023,k:"article",h:`Esha, S. A. &amp; ${me} (2023). Coverage of Editorials on Sustainable Development Goals in Bangladeshi Newspapers. <i>Khulna University Studies</i>.`,d:"10.53808/KUS.SI.2023.ICSSI62-ss"},
+ {y:2020,k:"article",h:`Ahmed, M. E., &amp; ${me} (2020). The Contemporaneous Coverage of War News: A Study on Liberation War News of Bangladesh. <i>IOSR Journal of Humanities and Social Science</i>, 25(7), pp. 01-09.`,d:"10.9790/0837-2507140109"},
+ // conference
+ {y:2025,k:"conf",h:`Shahriar, B., Sakib, S., &amp; ${me} (2025, November 20–23). <i>Framing Russia–Ukraine war: A comparative analysis of Ukraine’s counteroffensive against Russia in Western and Russian media</i> [Conference presentation]. 111th Annual Convention of the National Communication Association (NCA), Denver, CO, United States.`},
+ {y:2025,k:"conf",h:`Khan, M. A., Biswas, A., &amp; ${me} (2025, November 20–23). <i>The state of environmental journalism in Bangladesh: Exploring journalists’ literacy, challenges, and potential solutions</i> [Conference presentation]. 111th Annual Convention of the National Communication Association, Denver, CO, United States.`},
+ {y:2025,k:"conf",h:`Alam, T., Sakib, S., &amp; ${me} (2025, November 20–23). <i>Coverage of news on football in Bangladeshi newspapers: A comparative analysis between European and Bangladeshi domestic football</i> [Conference presentation]. 111th Annual Convention of the National Communication Association (NCA), Denver, CO, United States.`},
+ {y:2025,k:"conf",h:`${me}, Hossain, M. S., Talukder, M. U., Shohel, T. A., Hasib, M., &amp; Biswas, A. (2025, June). <i>AI as academic assistance or an ethical dilemma? Exploring the motivations behind ChatGPT usage</i> [Conference presentation]. 75th Annual Conference of the International Communication Association, Denver, CO, United States.`},
+ {y:2024,k:"conf",h:`Hasib, M., &amp; ${me} (2024). <i>How university students engage with ChatGPT: A qualitative study</i> [Conference presentation]. National Communication Association Conference, United States.`},
+ {y:2024,k:"conf",h:`Tisha, I. R., &amp; ${me} (2024). <i>From protagonists to stereotypes: Assessing gender sensitivity in female-led commercial films of Bangladesh</i> [Conference presentation]. 3rd International Conference on Humanities and Social Sciences, Jatiya Kabi Kazi Nazrul Islam University.`},
+ {y:2023,k:"conf",h:`Siam, M. M. B. R., &amp; ${me} (2023). <i>Social media as a platform for political campaign: A study on Narayanganj City Corporation Election 2022</i> [Conference presentation]. 1st International Conference on Social Science Issues, Social Science School, Khulna University.`},
+ {y:2023,k:"conf",h:`Hasib, M., &amp; ${me} (2023). <i>Trend of investigative journalism during COVID-19: A study on print media of Bangladesh</i> [Conference presentation]. 1st International Conference on Social Science Issues, Social Science School, Khulna University.`},
+ {y:2023,k:"conf",h:`Esha, S. A., &amp; ${me} (2023). <i>Coverage of editorials on Sustainable Development Goals in Bangladeshi newspapers</i> [Conference presentation]. 1st International Conference on Social Science Issues, Social Science School, Khulna University.`},
+ {y:2023,k:"conf",h:`Juthi, J., Hossen, S., ${me}, &amp; Hossain, M. S. (2023). <i>Framing of the Russia–Ukraine war in the leading newspapers of Bangladesh</i> [Conference presentation]. National Conference 2023: Journalism, Media &amp; Communication, Jahangirnagar University.`},
+ {y:2016,k:"conf",h:`${me}, &amp; Fahim, S. H. (2016). <i>Viewership factors of television programs in Bangladesh</i> [Conference presentation]. 1st National Conference on Mass Communication and Journalism, University of Dhaka.`},
+ // books & periodicals
+ {y:2024,k:"book",tag:"Edited book",h:`${me} (Ed.). (2024). <i>Investigative journalism on marginalized people and their way of life</i>. South Asia Center for Media in Development (SACMID). Dhaka, Bangladesh.`},
+ {y:2021,k:"book",tag:"Periodical",h:`${me} (2021). Investigative Journalism in International Media: Covid-19 Perspectives. <i>Nirikkha</i>. Vol. 235, PP. 44-46.`},
+ // newspaper
+ {y:2020,k:"press",tag:"Article",h:`Rahman, M.G. &amp; ${me} (2020, May 3). <span class="bn">কারাগারের রোজনামচায় গণমাধ্যমের স্বাধীনতা ও বর্তমান</span> (Review of Press Freedom in the Light of <i>Prison Diary</i>). <i>The Daily Prothom Alo: Online Edition</i>.`,u:"https://www.prothomalo.com/opinion/column/"},
+ {y:2020,k:"press",tag:"Article",h:`${me} (2020, April 5). <span class="bn">সংবাদমাধ্যমের সৃজনশীল আন্দোলন</span> (The Social movement of Media). <i>The Daily Samakal: Print and Online Edition</i>. P4.`,u:"https://samakal.com/editorial-comments/article/200417791/"},
+ {y:2015,k:"press",tag:"By-line",h:`${me} (2015, September 02). <span class="bn">ঝরে পড়ার হার এখনও ৪০ শতাংশের বেশি</span> (The drop-out rate is still more than 40%). <i>The Daily Samakal: Print and Online Edition</i>, P1.`,u:"https://samakal.com/print/140983185/print"},
+ {y:2015,k:"press",tag:"By-line",h:`${me} (2015, February 20). <span class="bn">ভুল বানানের ছড়াছড়ি</span> (The misspelt is everywhere). <i>The Daily Samakal: Print and Online Edition</i>, P1.`,u:"https://samakal.com/bibidh/article/1502119949/"},
+ {y:2015,k:"press",tag:"By-line",h:`${me} (2015, February 15). <span class="bn">যাত্রীদের সঙ্গে প্রতারণা: চাঁদার টাকা উসুল অতিরিক্ত ভাড়ায়।</span> (Fraudulence with Passengers). <i>Print and Online Edition</i>, P4.`,u:"https://samakal.com/todays-print-edition/tp-others/article/1502119877/"},
+ {y:2015,k:"press",tag:"By-line",h:`${me} (2015, January 29). <span class="bn">ফুটপাতে ব্যবসায়ীদের মাথায় হাত</span> (Avalanche of footway investors). <i>The Daily Samakal: Print and Online Edition</i>, P1.`,u:"https://samakal.com/todays-print-edition/tp-others/article/1501115286/"},
+ {y:2015,k:"press",tag:"By-line",h:`${me} (2015, January 23). <span class="bn">হাঁস পালনে এসেছে সুদিন</span> (The good-days came in poultry farming). <i>The Daily Samakal: Print and Online Edition</i>, P3.`,u:"https://samakal.com/todays-print-edition/tp-others/article/1501113793/"},
+ {y:2014,k:"press",tag:"By-line",h:`${me} (2014, December 28). <span class="bn">রুদ্ধশ্বাস ২৩ ঘন্টা</span> (23 hours of Suffocating). <i>The Daily Samakal: Print Edition</i>, P1.`},
+ {y:2014,k:"press",tag:"By-line",h:`${me} (2014, October 25). <span class="bn">'মৃত্যুরহস্য' উদ্ঘাটনে পুলিশের আগ্রহ কম</span> (Police Are Paying Less Heed to Investigate Murder Mysteries). <i>The Daily Samakal: Print and Online Edition</i>, P1.`,u:"https://samakal.com/bibidh/article/141094352"},
+ {y:2014,k:"press",tag:"By-line",h:`${me} (2014, October 24). <span class="bn">পুলিশ ফাঁড়ি মধুর হাঁড়ি: রাজধানীর ৫২ পুলিশ ফাঁড়িতেই নানা অনিয়ম ও হয়রানির অভিযোগ</span> (Irregularities and Vexation at Police Outpost). <i>The Daily Samakal: Print and Online Edition</i>, P1.`,u:"https://samakal.com/todays-print-edition/tp-others/article/141094112/"},
+ {y:2014,k:"press",tag:"By-line",h:`${me} (2014, October 11). <span class="bn">প্রতারণার ধরণ পাল্টাচ্ছে</span> (Trends of forgery are changing). <i>The Daily Samakal: Print and Online Edition</i>, P 20.`,u:"https://samakal.com/todays-print-edition/tp-others/article/141091240/"},
+ {y:2014,k:"press",tag:"By-line",h:`${me} &amp; Mostofa M.G. (2014, August 18). <span class="bn">রোমানের কাছে সবাই অসহায়: ময়মনসিংহে অপ্রতিরোধ্যে মাদক ব্যবসা</span> (Irresistible drug trading in Mymensingh). <i>The Daily Samakal: Print and Online Edition</i>, P 17.`,u:"https://samakal.com/todays-print-edition/tp-khobor/article/140879812/"},
+ {y:2014,k:"press",tag:"By-line",h:`${me} (2014, July 20). <span class="bn">প্রক্সি কারাভোগ: মুক্তি চায় নাসির</span> (Proxy Imprisonment). <i>The Daily Samakal: Print and Online Edition</i>, P3.`,u:"https://samakal.com/todays-print-edition/tp-khobor/article/140773698"},
+ {y:2014,k:"press",tag:"By-line",h:`${me} (2014, July 12). <span class="bn">নীলক্ষেতে জাল সনদের হাট</span> (Fake Certificate at Nilkhet). <i>The Daily Samakal: Print and Online Edition</i>, P1.`,u:"https://samakal.com/todays-print-edition/tp-first-page/article/140771925/"}
+];
+const pubTypes=[["all","All"],["article","Journal articles"],["conf","Conference papers"],["book","Books & periodicals"],["press","Newspaper writing"]];
+
+const leadership=[
+ ["2025","Focal Point","Future Nation– UNDP Project","Khulna University Chapter"],
+ ["2024","Convenor","Registration Committee – National Seminar on Navigating Post-COVID Challenges and Way Forward in Bangladesh","Social Science School, Khulna University"],
+ ["2023","Convenor","Planning Committee – DW Environmental Journalism Workshop","Khulna University & DW Akademie, Germany"],
+ ["2023","Member","Organizing Committee – 1st International Conference on Social Science Issues","Social Science School, Khulna University"],
+ ["2023–Present","Founding Adviser","Research Society",KU],
+ ["2023","Nominator","US TechCamp Bangladesh: Enhancing Journalism Skills to Counter Disinformation","Organized by the US Department of State"],
+ ["2023","Consulting Adviser","Helios Communication Initiative","Helios Consultancy, Khulna"],
+ ["2022","Member Secretary","Steering Committee – 6th Networking Conference of Journalism Educators and Journalists","Khulna University & DW Akademie, Germany"],
+ ["2022","Member (Elected)","Executive Committee","Khulna University Teachers' Association"],
+ ["2022–Present","Panel Member","Journalism Memorial Award Jury Board","Khulna Press Club"],
+ ["2022–Present","Member","National Conference Organizing Committee – Bangladesh","National Conference on Mass Communication and Journalism"],
+ ["2021–Present","Member","Technical Committee","The Federation of Bangladesh University Teachers' Association, Bangladesh"],
+ ["2020","Member","Organizing Committee – Communication Researchers' Meet","Mirchak Mahjantola Education and Welfare Society (Malda), Vidyarthi Manch (Howrah), Ulgulan Foundation (Maharashtra) & Shehnai Vadak Ustad Bismillah Khan Trust (Bihar), India"],
+ ["2020–Present","Coordinator","Editorial Board – Odommobangla.com",MCJKU],
+ ["2020–Present","Adviser","Career Club",KU],
+ ["2020–2021","Adviser","Journalists' Association",KU],
+ ["2020–Present","Adviser","Bangladesh Journalism Students' Council","Khulna University Unit"],
+ ["2020–Present","Coordinator","Sports Team – Mass Communication and Journalism Discipline",KU],
+ ["2019–Present","Adviser","Readers’ Forum","Daily Kaler Kantha, Khulna University Unit"],
+ ["2019","Adviser","Alumni Association","Mass Communication and Journalism Department, Bijoy Ekattor Hall, University of Dhaka"],
+ ["2017","Editorial Member","JMC Gazette, a Practice Journal",JMCDIU+", Dhaka"],
+ ["2017","Coordinator","Prominent.com, an Online News Portal",JMCDIU+", Dhaka"],
+ ["2017","Research Coordinator","Journalism and Mass Communication Department",DIU+", Dhaka"],
+ ["2014","Founding Member","Debating Club","Mass Communication and Journalism Department, University of Dhaka"]
+];
+
+const talks=[
+ ["2024","Discussant","Challenges of Mitigating Disinformation and Media","Press Information Department (PID)"],
+ ["06 Mar 2024","Session Co-Chair","Media, Culture and Society","National Seminar on Navigating Post-COVID Challenges and Way Forward in Bangladesh: Advancing Social Justice through Health Equity and Development, Organized by Social Science School, Khulna University"],
+ ["2024","Moderator","Human-AI Interaction in Journalism","9th CJEN Networking Conference, DW Akademie, Germany & North South University, Bangladesh"],
+ ["16 Sep 2024","Moderator","Workshop on Mastering Fact-Checking: Tools and Techniques for Verifying Social Media Content",MCJKU],
+ ["29 Aug 2024","Moderator","Workshop on Cracking the Code, Effective Strategy of Crime Reporting",MCJKU],
+ ["28–29 Oct 2023","Panelist","Understanding the Landscape of Local and Regional Media","8th CJEN Bangladesh Networking Conference, Department of Journalism, Media, and Communication (JMC), Daffodil International University (DIU), and DW Akademie"],
+ ["4 Oct 2023","Discussant","Journalism Practices in Bangladesh: Challenges and Prospects","National Conference 2023: Journalism, Media & Communication program, Department of Journalism and Media Studies, MRDI & Fojo Media Institute"],
+ ["Jun 2023","Participant","7th Networking Conference on Social Media","Mass Communication and Journalism Department, Barisal University, Bangladesh & DW Akademie, Germany"],
+ ["Dec 2022","Participant","6th Networking Conference on constructive journalism","Mass Communication and Journalism Discipline, Khulna University, Bangladesh & DW Akademie, Germany"],
+ ["12 Nov 2022","Participant","Media Information Literacy (MIL) Workshop","DW Akademie, Germany"],
+ ["30 Oct 2022","Moderator","Leveraging Media Literacy to Fight Hate Speech and Fake News in Digital Media","International Centre for Communication and Development"],
+ ["20 Sep 2022","Discussant","Misuse of Social Media","Khulna Betar"],
+ ["May 2022","Participant","5th Networking Conference on Bangladesh’s Changing Mediascape: Roles, Challenges and Commitments of Journalism Schools","Media Studies and Journalism, ULAB, Bangladesh & DW Akademie, Germany"],
+ ["06 Jun 2021","Moderator","Seminar on Ethics and Professionalism in Media",MCJKU],
+ ["2021","Co-Speaker","Golden Jubilee of Bangladesh Independence: Journalism in Bangladesh since 50 years","Bangladesh Journalism Students Council","https://fb.watch/v/tUMH6wiL/"],
+ ["2021","Speaker","Crime Reporting and Source Building","Department of Journalism and Mass Communication, Daffodil International University"],
+ ["2021","Speaker","Campus Reporting and Creative Writing","Hajee Mohammad Danesh Science & Technology University Journalists' Association"],
+ ["2020","Participant","4th Networking Conference on News Media in Bangladesh during Covid-19: Role of State and Media Educators","Department of Journalism and Media Studies, Jahangirnagar University & DW Akademie, Germany"],
+ ["2020","Co-Speaker","The Idea of Young Researchers on Academic and Research Practices in Bangladesh and India","Indo-Bangla Media Educators' Network","https://www.facebook.com/watch/live/?v=958927881269753&ref=watch_permalink"],
+ ["2020","Co-Speaker","Bicentenary Anniversary of Ishwar Chandra Vidyasagar: The Battle of Lone Warrior","Indo-Bangla Media Educators' Network","https://www.facebook.com/watch/live/?v=3477300885642203&ref=watch_permalink"],
+ ["2020","Co-Speaker","Free Flow of Information during Pandemic","Department of Journalism and Mass Communication, Daffodil International University"],
+ ["2020","Co-Speaker","Media Censorship: Bangladesh Perspectives","Newspaper Olympiad"],
+ ["2020","Co-Speaker","Press Freedom and Free Flow of Information during Covid-19","Mirchak Mahjantola Education and Welfare Society, Malda; Vidyarthi Manch, Howrah; Ulgulan Foundation, Maharastra & Shehnai Vadak Ustad Bismillah Khan Trust, Bihar"],
+ ["2020","Speaker","Feature and Creative Writing","Helix, Khulna University Biotech Club"],
+ ["2020","Participant","3rd Networking Conference on Journalism Education Connecting to the Professionals","Mass Communication and Journalism Department, Comilla University & DW Akademie, Germany"],
+ ["2019","Participant","Orientation Workshop on Tutorial Content Development on Media Ethics and Media Laws in Bangladesh","Article-19"],
+ ["2017","Participant","Workshop on Building a Sustainable Research Culture at the Entity Level of Daffodil International University","Organized by Institutional Quality Assurance Cell (IQAC), Daffodil International University"],
+ ["2015","Participant","Workshop on Media Response in Humanitarian and Disaster Contexts","Jointly Organized by Oxfam, Bangladesh & Disaster Management and Vulnerability Studies, University of Dhaka"]
+];
+const talkGroup=r=>/Moderator|Chair/.test(r)?"chair":r==="Participant"?"part":"speak";
+const talkTypes=[["all","All"],["speak","Speaker & panel"],["chair","Moderator & chair"],["part","Participant"]];
+
+const training=[
+ ["2024","Qualitative Data Analysis using MAXQDA and R","Institutional Quality Assurance Cell (IQAC), Khulna University"],
+ ["2024","Google AI Essentials","Coursera"],
+ ["2022","Right to Information Training Program","IQAC, Khulna University",1],
+ ["2022","Training for University Journalists on Digital Media: Policy and Practice","Khulna University Journalists' Association",1],
+ ["2022","News Writing and Development Journalism","Press Information Department (PID), Khulna",1],
+ ["2021","Campus Reporting and Creative Writing","Hajee Mohammad Danesh Science & Technology University Journalists' Association",1],
+ ["2021","Crime Reporting and Source Building","Journalism and Mass Communication Department, Daffodil International University",1],
+ ["2021","Online Exam Procedure for the Khulna University Students",KU,1],
+ ["2021","Facebook Fundamentals for News","Center for Communication Action Bangladesh, Center for Investigative Reporting, and the Facebook Journalism Project, Presented by BigSpring"],
+ ["2020","Data Analysis with SPSS and NVivo","IQAC, Khulna University"],
+ ["2020","Understanding Research Methods","University of London via Coursera"],
+ ["2020","Mixed Methods Research Design","Urban and Rural Planning Discipline, Khulna University"],
+ ["2020","Professional Emails","Georgia Institute of Technology via Coursera"],
+ ["2019","Basics of Reporting for Regional Journalists","Press Institute of Bangladesh",1],
+ ["2019","Pedagogy Module 1: Teaching and Learning","Centre of Excellence in Teaching and Learning (CETL), Khulna University"],
+ ["2019","Teaching and Learning and Assessment (Module-2)","Centre of Excellence in Teaching and Learning (CETL), Khulna University"],
+ ["2016","Pedagogy, Bloom’s Taxonomy, ILO, Lesson Plan, and Student-Centric Education","IQAC, Daffodil International University"],
+ ["2014","Reporting & Sub-editing for Print Media","Media Resources Development Initiative (MRDI)"],
+ ["2014","Brand Development","BEXIMCO Media"],
+ ["2012","BBC Janala Online English Course (Part 1 & 2)","BBC Media Action, UKaid"],
+ ["2011","Bangla Pronunciation, Writing and Reciting","Kanthashilan"]
+];
+const trainTypes=[["all","All"],["given","Delivered as trainer"],["taken","Completed"]];
+
+const honours=[
+ ["2025","Australia Awards","Department of Foreign Affairs and Trade, Australia","Awarded for Master’s Degree in Media and Communication"],
+ ["2021","Lifetime Honorary Award","Khulna University Journalist's Association","Awarded for the Role of Founding Adviser"],
+ ["2016","Ataus Samad Memorial Trust Scholarship","University of Dhaka","Awarded for outstanding academic performance during undergraduate and graduate studies"],
+ ["2015","Merit Scholarship","Dhaka University Alumni Association","Awarded for Bachelor’s and Master’s results"],
+ ["2010","Board Scholarship","Higher Secondary Certificate, Barisal Board","Awarded for academic excellence"],
+ ["2009","Bhola Jilla Parishad Scholarship","","Awarded for Secondary School Certificate Examination Result"],
+ ["2009","Bhola Sadar Upazila Best Students Award","","Awarded for Secondary School Certificate Examination Result"],
+ ["2008","Board Scholarship","Secondary School Certificate, Barisal Board","Awarded for academic excellence"]
+];
+const committees=[
+ ["Member","School of Studies","Social Science School, Khulna University"],
+ ["Member","Inquiry Committee on Student Ragging",KU],
+ ["Member","Renovation Committee","Social Science School, Khulna University"],
+ ["Member","Outcome-Based Education (OBE) Curriculum Development Committee",MCJKU],
+ ["External Member","Exam Committee","Sports Science Department, Jashore University of Science and Technology"],
+ ["External Member","Exam Committee","Mass Communication and Journalism Department, Comilla University"],
+ ["External Member","Exam Committee","Mass Communication and Journalism Department, Jagannath University"],
+ ["External Member","Exam Committee","Mass Communication and Journalism Department, Kabi Kazi Nazrul Islam University"],
+ ["External Member","Exam Committee","Mass Communication and Journalism Department, Barisal University"],
+ ["External Member","Exam Committee","Mass Communication and Journalism Department, Jahangirnagar University"]
+];
+const memberships=[
+ ["2026–Present","Member","RMIT University Student Union (RUSU)"],
+ ["2026–Present","Member","RMIT Labor Club"],
+ ["2025–Present","Member","International Communication Association (ICA)"],
+ ["2025–Present","Member","National Communication Association (NCA)"],
+ ["2025–Present","Member","International Association for Media and Communication Research (IAMCR)"],
+ ["2025–Present","Member","Association for Education in Journalism and Mass Communication (AEJMC)"],
+ ["2025–Present","Member","Asian Media Information and Communication Centre (AMIC)"],
+ ["2024–Present","Member, Executive Committee","Communication and Journalism Educators' Network, Bangladesh (CJEN)"]
+];
+const extra=[
+ ["2021","Finalist – 2nd Round","App Idea on Helpline, National Idea Contest","University Grants Commission (UGC), Bangladesh"],
+ ["2017","1st Runner-up","National Essay Competition on Consumer Rights","Directorate of National Consumer Rights Protection, Ministry of Commerce"],
+ ["2014","Best Writer (University Category)","Essay on Bangabandhu Sheikh Mujibur Rahman","Brittanto-71"],
+ ["2014","2nd Runner-up","Essay Competition on National Poet’s Birth Anniversary","Tamuddun Majlish"],
+ ["2013","Writer","Collection of Seventy-One Letters on Bangabandhu Sheikh Mujibur Rahman","Brittanto-71"],
+ ["2013","National Theme Writing Winner","National Power and Energy Week","Ministry of Power, Energy & Mineral Resources, Bangladesh"],
+ ["2013","Champion","Debate Competition, Annual Cultural & Sports Ceremony","Department of Mass Communication & Journalism, University of Dhaka"],
+ ["2013","Champion","Indoor Sport Competition (Carom), Annual Cultural & Sports Ceremony","Mass Communication and Journalism Department, University of Dhaka"],
+ ["2013","1st Runner-up","Indoor Sport Competition (Carom Doubles), Annual Cultural & Sports Ceremony","Mass Communication and Journalism Department, University of Dhaka"],
+ ["2013","2nd Runner-up","Selected Speech Competition, Annual Cultural & Sports Competition","Mass Communication and Journalism Department, Dhaka University"],
+ ["2012","Champion","National Essay Competition on Victory Day","Public Library Division, Ministry of Cultural Affairs"],
+ ["2012","1st Runner-Up","Extempore Speech Competition, Annual Cultural & Sports Ceremony","Department of Mass Communication & Journalism, University of Dhaka"],
+ ["2012","1st Runner-up","International Essay Competition","The Islamic Educational, Scientific and Cultural Organization (ISESCO) & Public Library Division, Ministry of Cultural Affairs"],
+ ["2012","1st Runner-up","National Essay competition on Bangle New Year","Public Library Division, Ministry of Cultural Affairs"],
+ ["2011","1st Runner-up","Debate Competition, Annual Cultural & Sports Ceremony","Mass Communication and Journalism Department, University of Dhaka"],
+ ["2011","2nd Runner-up","Poem Recitation Competition, Annual Cultural & Sports Competition","Mass Communication and Journalism Department, University of Dhaka"]
+];
+
+/* ---------- helpers ---------- */
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+function row(when,inner){return `<li><div class="when">${when||""}</div><div class="what">${inner}</div></li>`}
+function renderList(id,html,limit){
+  const ul=$(id); ul.innerHTML=html.join("");
+  const old=ul.nextElementSibling; if(old&&old.classList.contains("more")) old.remove();
+  if(limit&&html.length>limit){
+    const items=[...ul.children]; items.slice(limit).forEach(li=>li.hidden=true);
+    const b=document.createElement("button"); b.type="button"; b.className="more";
+    b.textContent=`Show all ${html.length}`; b.setAttribute("aria-expanded","false");
+    b.onclick=()=>{const open=b.getAttribute("aria-expanded")==="true";
+      items.slice(limit).forEach(li=>li.hidden=open);
+      b.setAttribute("aria-expanded",String(!open)); b.textContent=open?`Show all ${html.length}`:"Show fewer";};
+    ul.after(b);
+  }
+}
+function chips(id,types,counts,state,onPick){
+  const el=$(id);
+  el.innerHTML=types.map(([k,l])=>`<button type="button" class="chip" data-k="${k}" aria-pressed="${k===state.v}">${esc(l)}<span class="n">${counts[k]}</span></button>`).join("");
+  el.onclick=e=>{const b=e.target.closest(".chip"); if(!b) return; state.v=b.dataset.k;
+    el.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",String(c.dataset.k===state.v))); onPick();};
+}
+const setCount=(id,n,word)=>{$(id).textContent=`${n} ${word}`};
+
+/* ---------- static sections ---------- */
+renderList("l-education",education.map(([w,t,s,g])=>row(w,`<div class="t">${esc(t)}</div><div class="s">${esc(s)}</div><div class="s mono">${esc(g)}</div>`)));
+setCount("c-education",education.length,"qualifications");
+renderList("l-experience",experience.map(([w,t,s,d])=>row(w,`<div class="t">${esc(t)}</div><div class="s">${esc(s)}</div><div class="s">${esc(d)}</div>`)));
+setCount("c-experience",experience.length,"positions");
+renderList("l-projects",projects.map(([w,t,s,f])=>row(w,`<span class="tag">${esc(t)}</span><div>${s}</div><div class="s">${esc(f)}</div>`)));
+setCount("c-projects",projects.length,"funded");
+renderList("l-leadership",leadership.map(([w,r,t,o])=>row(w,`<div><span class="t">${esc(r)}</span>, ${esc(t)}</div><div class="s">${esc(o)}</div>`)),8);
+setCount("c-leadership",leadership.length,"roles");
+renderList("l-honours",honours.map(([w,t,o,d])=>row(w,`<div class="t">${esc(t)}</div>${o?`<div class="s">${esc(o)}</div>`:""}<div class="s">${esc(d)}</div>`)));
+setCount("c-honours",honours.length,"awards");
+renderList("l-committees",committees.map(([r,t,o])=>row("",`<div><span class="t">${esc(r)}</span>, ${esc(t)}</div><div class="s">${esc(o)}</div>`)));
+setCount("c-committees",committees.length,"committees");
+renderList("l-memberships",memberships.map(([w,r,o])=>row(w,`<div class="t">${esc(o)}</div><div class="s">${esc(r)}</div>`)));
+setCount("c-memberships",memberships.length,"bodies");
+renderList("l-extra",extra.map(([w,r,t,o])=>row(w,`<div><span class="t">${esc(r)}</span>, ${esc(t)}</div><div class="s">${esc(o)}</div>`)),6);
+setCount("c-extra",extra.length,"entries");
+
+/* ---------- publications ---------- */
+const pubState={v:"all"};
+const pubCounts={all:pubs.length}; pubs.forEach(p=>pubCounts[p.k]=(pubCounts[p.k]||0)+1);
+pubs.forEach(p=>{const d=document.createElement("div");d.innerHTML=p.h;p.text=(d.textContent+" "+(p.d||"")+" "+p.y).toLowerCase()});
+const kindLabel={article:"",conf:"",book:"",press:""};
+function drawPubs(){
+  const q=$("pub-q").value.trim().toLowerCase();
+  const list=pubs.filter(p=>(pubState.v==="all"||p.k===pubState.v)&&(!q||p.text.includes(q)));
+  $("pub-empty").hidden=list.length>0;
+  renderList("l-pubs",list.map(p=>row(p.y,
+    `<div class="cite${p.bn?" bn":""}">${p.tag?`<span class="tag">${p.tag}</span>`:""}${p.h}</div>${doi(p.d)}${p.u?`<div class="doi"><a href="${p.u}" target="_blank" rel="noopener">Read online</a></div>`:""}`)),
+    (pubState.v==="all"&&!q)?10:0);
+}
+chips("pub-chips",pubTypes,pubCounts,pubState,drawPubs);
+$("pub-q").addEventListener("input",drawPubs);
+setCount("c-pubs",pubs.length,"items");
+drawPubs();
+
+/* ---------- talks ---------- */
+const talkState={v:"all"}; const talkCounts={all:talks.length};
+talks.forEach(t=>{const g=talkGroup(t[1]);talkCounts[g]=(talkCounts[g]||0)+1});
+function drawTalks(){
+  const list=talks.filter(t=>talkState.v==="all"||talkGroup(t[1])===talkState.v);
+  renderList("l-talks",list.map(([w,r,t,o,u])=>row(w,`<span class="tag">${esc(r)}</span><i>${esc(t)}</i><div class="s">${esc(o)}</div>${u?`<div class="doi"><a href="${u}" target="_blank" rel="noopener">Watch webinar</a></div>`:""}`)),talkState.v==="all"?8:0);
+}
+chips("talk-chips",talkTypes,talkCounts,talkState,drawTalks);
+setCount("c-talks",talks.length,"events"); drawTalks();
+
+/* ---------- training ---------- */
+const trainState={v:"all"};
+const trainCounts={all:training.length,given:training.filter(t=>t[3]).length,taken:training.filter(t=>!t[3]).length};
+function drawTraining(){
+  const list=training.filter(t=>trainState.v==="all"||(trainState.v==="given")===!!t[3]);
+  renderList("l-training",list.map(([w,t,o,g])=>row(w,`${g?'<span class="tag">Trainer</span>':""}<span class="t">${esc(t)}</span><div class="s">${esc(o)}</div>`)),trainState.v==="all"?8:0);
+}
+chips("train-chips",trainTypes,trainCounts,trainState,drawTraining);
+setCount("c-training",training.length,"programmes"); drawTraining();
+
+/* ---------- headline figures ---------- */
+const figs=[
+ [pubCounts.article,"Journal articles","publications","article"],
+ [pubCounts.conf,"Conference papers","publications","conf"],
+ [projects.length,"Funded projects","projects"],
+ [talks.length,"Workshops & seminars","talks"],
+ [trainCounts.given,"Trainings delivered","training","given"]
+];
+$("figs").innerHTML=figs.map(([n,l,s,f],i)=>`<button type="button" class="fig" data-i="${i}"><b>${n}</b><span>${esc(l)}</span></button>`).join("");
+$("figs").onclick=e=>{const b=e.target.closest(".fig"); if(!b) return; const [, ,s,f]=figs[b.dataset.i];
+  if(f){const box=s==="publications"?"pub-chips":"train-chips"; $(box).querySelector(`[data-k="${f}"]`).click(); if(s==="publications") $("pub-q").value="", drawPubs();}
+  $(s).scrollIntoView();};
+
+/* ---------- nav + scroll-spy ---------- */
+const secs=[...document.querySelectorAll("main section")];
+const short={education:"Education",experience:"Experience",projects:"Research projects",publications:"Publications",leadership:"Leadership",talks:"Workshops & seminars",training:"Training",honours:"Honours & awards",committees:"Academic committees",memberships:"Memberships",extra:"Extracurricular",references:"References"};
+$("nav").innerHTML=secs.map(s=>`<li><a href="#${s.id}" data-id="${s.id}">${esc(short[s.id]||s.id)}</a></li>`).join("");
+const links=[...document.querySelectorAll("#nav a")];
+function spy(){
+  let cur=secs[0].id; const y=window.innerHeight*0.3;
+  for(const s of secs){if(s.getBoundingClientRect().top<=y) cur=s.id;}
+  links.forEach(a=>{const on=a.dataset.id===cur; a.classList.toggle("on",on);
+    if(on&&window.innerWidth<=860){const nav=a.closest("nav"); const l=a.offsetLeft-nav.clientWidth/2+a.offsetWidth/2; nav.scrollTo({left:l});}});
+}
+let tick=false; window.addEventListener("scroll",()=>{if(!tick){tick=true;requestAnimationFrame(()=>{spy();tick=false})}},{passive:true});
+spy();
+if(location.hash&&$(location.hash.slice(1))) $(location.hash.slice(1)).scrollIntoView();
+
+/* ---------- copy ---------- */
+document.querySelectorAll(".copy").forEach(b=>b.addEventListener("click",()=>{
+  const el=$(b.dataset.copy), txt=el.textContent;
+  const done=()=>{b.textContent="Copied";setTimeout(()=>b.textContent="Copy",1400)};
+  const fallback=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="Selected";setTimeout(()=>b.textContent="Copy",1400)};
+  try{navigator.clipboard.writeText(txt).then(done,fallback)}catch(e){fallback()}
+}));
+</script>
+
+</body>
+</html>
